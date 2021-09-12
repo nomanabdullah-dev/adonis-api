@@ -4,6 +4,7 @@ import {
   column,
   beforeSave,
   BaseModel,
+  computed,
 } from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
@@ -30,5 +31,11 @@ export default class User extends BaseModel {
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }
+  }
+
+  @computed()
+  public get user()
+  {
+    return 'noman'
   }
 }

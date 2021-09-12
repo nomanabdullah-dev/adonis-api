@@ -31,4 +31,12 @@ export default class AuthController {
 
     return token.toJSON()
   }
+
+  async logout({response, auth}: HttpContextContract)
+  {
+    await auth.logout()
+    return response.json({
+      "logout": true
+    })
+  }
 }
